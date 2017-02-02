@@ -23,6 +23,14 @@ const config = {
   //entry: __dirname + "/src/app.js", // this based on context
   
   // http://jonathancreamer.com/advanced-webpack-part-1-the-commonschunk-plugin/
+  /*
+  entry: {
+    app: "./app.js",
+    admin: "./admin.js"
+  },
+  */
+  
+  
   entry: {
     app: __dirname + "/src/app.js",
     admin: __dirname + "/src/admin.js"
@@ -31,7 +39,12 @@ const config = {
   output: {
     // [name].xxxx
     filename: "[name].bundle.js",
-    path: __dirname + "/build" // but somehow path, need the full path
+    path: __dirname + "/build", // but somehow path, need the full path
+    
+    // why need this?
+    // root path is /build
+    // anything inside
+    publicPath: "/build/"
   },
   
   // single module
@@ -65,6 +78,7 @@ const config = {
       
       {
         test: /\.scss$/,
+        //include: __dirname + "/src",
         // can use loader staight away
         // sass bottom, the css loader
         // need to be array.
@@ -73,6 +87,7 @@ const config = {
       
       {
         test: /\.(png|jpg)$/,
+        //include: __dirname + "/src",
         use: [
             // can use man loaders here, with options.
             // https://github.com/webpack/webpack/issues/653
@@ -89,7 +104,8 @@ const config = {
   // assign const
   plugins: [
     extractCommons,
-    extractCss 
+    extractCss,
+    new webpack.NamedModulesPlugin()
   ]
 }
 

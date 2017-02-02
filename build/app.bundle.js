@@ -1,4 +1,4 @@
-webpackJsonp([0],[
+webpackJsonp([1],[
 /* 0 */
 /***/ (function(module, exports) {
 
@@ -2358,12 +2358,6 @@ module.exports = function(module) {
 
 /***/ }),
 /* 75 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 76 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = {
@@ -2399,12 +2393,13 @@ module.exports = {
 
 
 /***/ }),
-/* 77 */
+/* 76 */
 /***/ (function(module, exports) {
 
 module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAABQCAMAAAC5zwKfAAAAflBMVEUAAAD////u7u739/fe3t76+vrx8fHz8/NFRUXKysrh4eHo6OhiYmL5+fnZ2dlqamp3d3eOjo6lpaUODg6IiIg1NTWWlpYcHBxPT08qKiqvr69ZWVk6OjoxMTG5ubmnp6dISEjCwsJ9fX3Q0NCbm5sXFxc/Pz8LCwtwcHB6enoGosN+AAAC7UlEQVRYhe1Y6ZayMAxl32WTXQdFFJn3f8GPAO3ox9LFnjN/5v7ThgvJTdK0kvSHPyCkfRRf4iy8CmHrYk0xdVmWdVVxq9OHbGXoy+8wk68P+PpWXsK/HTnpjrE5czh2Xde2Nv86NA8uvryZnnezU1rmj7xMi2jm9FMOvvPoru6+y1C0+vgSDnFGPuO+8C5yYUGzWPku44cEKyveKLzPyBeq4G+3upY6wJgx8VkQfWPTLWNYVT0WwjtkR7K57MH3syTPGQLf5NsGEGFjLcAbCEkuFRDGmJ4QdGx2LWKonzM1IahY7FoUoAu1LCcgJNhAGkS0hNFg3BJsKmJUXlAPxneCDejm0BJCGW8n4YQCEoeWEEQOCTYWZNavETYUCnqDjUJLCIVVEWwilhZ2o1CwoXgpxpkisaF93GgJJZWYN9+DyeFKTQhloO3tvk/w2C6pCUFCfe8TA4OllIcJxN7ffB+w7lzpCaUeolhvOg3dkFjtbzjWe4/04z66s0OswFLkzSiFEECZdXbwxkFkbduIVGaHR9zGIUYL3gN5tKYJj2GDwqinSavqf9Qu+0qd+NgCOCJQ5nFQbeskKKzCS6rWmP6KeEZO9WVoPZiKopiH+Zfbc9A9/LHfhZou/weXbUpCfFDNxpAZedK6L2xKG/PN7MngnjoVc+5FF1tzFVezqyyg7wcv8KQCwlXjP55l2nVdWvLN6lIm+yCwzff0Et6UGi5Hpq3iOWmgMwx/+7BnPannFgIqnCFiXE5QfZhMI/kmTqh+da5yWAIXRcN74HwHEoQ4bVLijviMT87YPwiRIIdvIXwdEoSrvS/xxHw12ZiGr8aCcHWoBTLEpzOfrFcRoOsKhplvDwUOoKAKwbc9tZiWgFuMRn++3EOEt8r1OwZWhFgQng18iauDK+QphBALwjCD7+GC+BQxguAKkcW0LDyz7R4i6PGFrgTlSkzPbxCfL8ZhPFQ6gvikOYL6p3e/GKbQFjPAMWB2vogRZMA/YPkg7KyB8q8AAAAASUVORK5CYII="
 
 /***/ }),
+/* 77 */,
 /* 78 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -7183,14 +7178,11 @@ module.exports = g;
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_lodash_collection__ = __webpack_require__(76);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_lodash_collection__ = __webpack_require__(75);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_lodash_collection___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_lodash_collection__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__people__ = __webpack_require__(26);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__style_scss__ = __webpack_require__(75);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__style_scss___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__style_scss__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__code_png__ = __webpack_require__(77);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__code_png___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__code_png__);
-
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__code_png__ = __webpack_require__(76);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__code_png___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__code_png__);
 
 
 
@@ -7210,17 +7202,21 @@ var root = document.querySelector("#root");
 // need to run JSON.stirngify and output
 root.innerHTML = "<pre>" + JSON.stringify(output, null, 2) + "</pre>";
 
-/*
-// create img element
-let img = document.createElement("img");
-img.src = img_path; // assign src
-img.style = "width: 100px; height: 100px"; // style
-img.alt = "test img"; // alt
+var routes = {
+  // need to a func
+  dashboard: function dashboard() {
+    // no System.require
+    // it is System.import
+    __webpack_require__.e/* import() */(0).then(__webpack_require__.bind(null, 77)).then(function (dashboard) {
+      dashboard.draw();
+    }).catch(function (err) {
+      console.log("error......");
+    });
+  }
+};
 
-// append to doc body append child
-// with img
-document.body.appendChild(img);
-*/
+// run
+setTimeout(routes.dashboard, 1000);
 
 /***/ })
 ],[219]);

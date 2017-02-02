@@ -1,10 +1,16 @@
 import { groupBy } from "lodash/collection";
 import people from "./people";
-import "./style.scss";
 import img_path from "./code.png";
 
 let output = groupBy(people, "manager");
 
+
+// accept module reload, if dev
+// in production, module.hot === false
+if(module.hot) {
+  // https://webpack.github.io/docs/hot-module-replacement.html
+  module.hot.accept();
+}
 
 // const
 // root
@@ -20,15 +26,18 @@ const root = document.querySelector("#root");
 root.innerHTML = `<pre>${JSON.stringify(output, null, 2)}</pre>`;
 
 
+const routes = {
+  // need to a func
+  dashboard: () => {
+    // no System.require
+    // it is System.import
+    System.import("./dashboard").then((dashboard) => {
+      dashboard.draw();
+    }).catch((err) => {
+      console.log(err);
+    });
+  }
+} 
 
-/*
-// create img element
-let img = document.createElement("img");
-img.src = img_path; // assign src
-img.style = "width: 100px; height: 100px"; // style
-img.alt = "test img"; // alt
-
-// append to doc body append child
-// with img
-document.body.appendChild(img);
-*/
+// run
+setTimeout(routes.dashboard, 1000);
