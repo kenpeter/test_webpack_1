@@ -21,6 +21,7 @@ root.innerHTML = `<pre>${JSON.stringify(output, null, 2)}</pre>`;
 
 
 
+/*
 // create img element
 let img = document.createElement("img");
 img.src = img_path; // assign src
@@ -30,3 +31,4 @@ img.alt = "test img"; // alt
 // append to doc body append child
 // with img
 document.body.appendChild(img);
+*/

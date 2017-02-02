@@ -142,4 +142,31 @@
 /******/ 	__webpack_require__.oe = function(err) { console.error(err); throw err; };
 /******/ })
 /************************************************************************/
-/******/ ([]);
+/******/ ({
+
+/***/ 26:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+var people = [{
+  manager: "Jen",
+  name: "Bob"
+}, {
+  manager: "Jen",
+  name: "Kate"
+}, {
+  manager: "Jen",
+  name: "Bill"
+}, {
+  manager: "Bob",
+  name: "Ken"
+}, {
+  manager: "Bob",
+  name: "Peter"
+}];
+
+/* harmony default export */ __webpack_exports__["a"] = people;
+
+/***/ })
+
+/******/ });

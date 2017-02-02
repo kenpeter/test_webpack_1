@@ -1,6 +1,13 @@
 // can still use const
 const webpack = require("webpack"); // no import, es5
 
+// https://www.npmjs.com/package/extract-text-webpack-plugin
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
+
+// need to have new
+// extract text plugin
+// [name].bundle.css
+const extractCss = new ExtractTextPlugin("[name].bundle.css");
 
 //https://webpack.js.org/plugins/commons-chunk-plugin/
 const extractCommons = new webpack.optimize.CommonsChunkPlugin({
@@ -58,10 +65,10 @@ const config = {
       
       {
         test: /\.scss$/,
-        // we can do loaders: {test: xxxx, loaders: [xxx, xxx, xxx]}
-        // styleLoader(cssLoader(sassLoader('source')))
-        // So the order indeed is important here.
-        use: ["style-loader", "css-loader", "sass-loader"]
+        // can use loader staight away
+        // sass bottom, the css loader
+        // need to be array.
+        loader: extractCss.extract(["css-loader", "sass-loader"])
       },
       
       {
@@ -81,7 +88,8 @@ const config = {
   // array of plugins
   // assign const
   plugins: [
-    extractCommons
+    extractCommons,
+    extractCss 
   ]
 }
 
